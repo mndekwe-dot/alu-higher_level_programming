@@ -1,2 +1,1 @@
-# alu-higher_level_programming
-learning python
+This is readem to guide those who want to explore my code.
