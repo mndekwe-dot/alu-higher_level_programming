@@ -1,7 +1,2 @@
 #!/bin/bash
-
-# This script executes Python code passed to it via the environment variable $PYCODE.
-# The 'python3 -c' command allows the interpreter to run code directly from a string.
-
 python3 -c "$PYCODE"
-
