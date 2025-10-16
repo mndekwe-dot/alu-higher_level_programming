@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 A script that prints the result of the addition of all command-line arguments.
 Arguments are assumed to be castable into integers and can handle large numbers.
