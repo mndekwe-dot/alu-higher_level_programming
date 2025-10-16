@@ -12,4 +12,3 @@ if __name__ == "__main__":
 
     # Print the final result
     print(total)
-
