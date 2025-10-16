@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import hidden_4
-import inspect
 
 if __name__ == "__main__":
     # Get all names (attributes) defined in the imported module
@@ -12,4 +11,3 @@ if __name__ == "__main__":
     for name in sorted(names):
         if not name.startswith('__'):
             print(name)
-
