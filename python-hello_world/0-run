@@ -1,9 +1,2 @@
 #!/bin/bash
-
-# This script runs a Python script whose filename is provided
-# via the environment variable $PYFILE.
-
-# We explicitly call the python3 interpreter with the file path
-# stored in the variable for reliable execution.
 python3 "$PYFILE"
-
