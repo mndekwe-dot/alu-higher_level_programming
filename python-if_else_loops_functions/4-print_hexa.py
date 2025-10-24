@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("\n".join(f"{i} = 0x{i:x}" for i in range(99)), end="\n")
+for i in range(100):
+    print("{:02d}{}".format(i, ", " if i != 99 else ""))
