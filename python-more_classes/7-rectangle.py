@@ -10,7 +10,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """
-        Initialize a new Rectangle.
+        Initialize a new Rectangle instance.
 
         Args:
             width (int): Width of the rectangle (default 0)
@@ -22,7 +22,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Retrieve the width."""
+        """Retrieve the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -36,7 +36,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieve the height."""
+        """Retrieve the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -56,7 +56,7 @@ class Rectangle:
         """
         Return the perimeter of the rectangle.
 
-        If width or height is 0, returns 0.
+        Returns 0 if width or height is 0.
         """
         if self.__width == 0 or self.__height == 0:
             return 0
