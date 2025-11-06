@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle."""
+"""Defines a class Rectangle with instance counting."""
 
 
 class Rectangle:
     """Represents a rectangle."""
+
+    number_of_instances = 0  # public class attribute
 
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
@@ -13,6 +15,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -53,4 +56,19 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """Return the rectangle as a string of '#' characters."""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        return "\n".join(["#" * self.__width for _ in range(self.__height)])
+
+    def __repr__(self):
+        """Return a string representation to recreate a new instance."""
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Print a message when an instance is deleted and decrement the counter."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 

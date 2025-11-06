@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle."""
+"""Defines a class Rectangle with print symbol and instance counting."""
 
 
 class Rectangle:
     """Represents a rectangle."""
 
+    number_of_instances = 0  # tracks the number of instances
+    print_symbol = "#"       # symbol for string representation
+
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
         Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
+            width (int): Width of rectangle.
+            height (int): Height of rectangle.
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -48,9 +52,7 @@ class Rectangle:
 
     def perimeter(self):
         """Return the perimeter of the rectangle.
-        If width or height is 0, perimeter is 0.
+        Returns 0 if width or height is 0.
         """
         if self.__width == 0 or self.__height == 0:
-            return 0
-        return 2 * (self.__width + self.__height)
 
