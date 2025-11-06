@@ -1,18 +1,20 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle with print symbol and instance counting."""
+"""Defines a Rectangle class with print_symbol and instance counting."""
 
 
 class Rectangle:
     """Represents a rectangle."""
 
-    number_of_instances = 0  # tracks the number of instances
-    print_symbol = "#"       # symbol for string representation
+    number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
+        """
+        Initialize a new Rectangle.
+
         Args:
-            width (int): Width of rectangle.
-            height (int): Height of rectangle.
+            width (int): Width of the rectangle (default 0)
+            height (int): Height of the rectangle (default 0)
         """
         self.width = width
         self.height = height
@@ -51,8 +53,27 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return the perimeter of the rectangle.
-        Returns 0 if width or height is 0.
+        """
+        Return the perimeter of the rectangle.
+
+        If width or height is 0, returns 0.
         """
         if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)
 
+    def __str__(self):
+        """Return the rectangle as a string using print_symbol."""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        symbol = str(self.print_symbol)
+        return "\n".join(symbol * self.__width for _ in range(self.__height))
+
+    def __repr__(self):
+        """Return a string representation to recreate a new instance."""
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Print a message when an instance is deleted and decrement the counter."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
