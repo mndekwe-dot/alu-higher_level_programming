@@ -5,10 +5,12 @@
 class Rectangle:
     """Represents a rectangle."""
 
-    number_of_instances = 0  # public class attribute
+    number_of_instances = 0  # Public class attribute
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
+        """
+        Initialize a new Rectangle.
+
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
@@ -50,7 +52,9 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return the perimeter of the rectangle.
+        """
+        Return the perimeter of the rectangle.
+
         If width or height is 0, perimeter is 0.
         """
         if self.__width == 0 or self.__height == 0:
@@ -61,7 +65,7 @@ class Rectangle:
         """Return the rectangle as a string of '#' characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for _ in range(self.__height)])
+        return "\n".join("#" * self.__width for _ in range(self.__height))
 
     def __repr__(self):
         """Return a string representation to recreate a new instance."""
@@ -71,4 +75,3 @@ class Rectangle:
         """Print a message when an instance is deleted and decrement the counter."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-
