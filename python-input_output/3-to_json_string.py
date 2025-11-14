@@ -1,8 +1,15 @@
 #!/usr/bin/python3
-"""Function that appends a string at the end of the file utf-8"""
+"""Module that converts an object to JSON string"""
+import json
 
 
-def append_write(filename="", text=""):
-    """Appending into the file using write and a"""
-    with open(filename, 'a', encoding="utf-8") as file:
-        return file.write(text)
+def to_json_string(my_obj):
+    """Returns the JSON representation of an object (string)
+    
+    Args:
+        my_obj: The object to convert to JSON string
+        
+    Returns:
+        str: JSON representation of the object
+    """
+    return json.dumps(my_obj)
