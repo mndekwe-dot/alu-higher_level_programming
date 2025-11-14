@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""Script that adds all arguments to a Python list and saves to a file"""
-import sys
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+"""Module that loads an object from a JSON file"""
+import json
 
-filename = "add_item.json"
 
-try:
-    my_list = load_from_json_file(filename)
-except FileNotFoundError:
-    my_list = []
+def load_from_json_file(filename):
+    """Creates an Object from a JSON file
 
-my_list.extend(sys.argv[1:])
-save_to_json_file(my_list, filename)
+    Args:
+        filename: The name of the file to read from
+
+    Returns:
+        The Python object represented by the JSON file
+    """
+    with open(filename, 'r', encoding='utf-8') as f:
+        return json.load(f)
