@@ -1,27 +1,23 @@
 #!/usr/bin/python3
-"""Defines the BaseGeometry class, which includes type validation."""
+"""creates a new subclass from rectangle"""
 
 
-class BaseGeometry:
-    """A base class for geometric shapes."""
+Rectangle = __import__('9-rectangle').Rectangle
+
+
+class Square(Rectangle):
+    """class that defines a Square from Rectangle Class"""
+
+    def __init__(self, size):
+        """initialize variables"""
+        self.integer_validator('size', size)
+        self.__size = size
+        super().__init__(self.__size, self.__size)
 
     def area(self):
-        """Raises an Exception indicating that area() is not implemented."""
-        raise Exception("area() is not implemented")
+        """Method to return the area"""
+        return self.__size ** 2
 
-    def integer_validator(self, name, value):
-        """
-        Validates the value as an integer greater than 0.
-
-        Args:
-            name (str): The name of the value (always a string).
-            value (int): The value to validate.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
-        """
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+    def __str__(self):
+        """special method that returns a printable string"""
+        return f"[Square] {self.__size}/{self.__size}"
